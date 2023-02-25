@@ -29,18 +29,11 @@ class Timeline:
         else:
             return False
 
-class Window:
-    def __init__(self):
-        self.elems = []
-    
-    def add(self, elem):
-        self.elems.append(elem)
-
 class Editor:
     def __init__(self):
         self.config = toml.load("./CONFIGURATION.toml")['Editor_Configurations']
         self.__version__ = self.config['version']
-        self.default_window = Window()
+        self.default_timeline = Timeline(medias=[])
 
 if __name__ == "__main__":
     e = Editor()
